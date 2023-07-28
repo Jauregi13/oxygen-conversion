@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Convert from './components/Convert';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <FontAwesomeIcon className='icon' icon={faArrowRightArrowLeft} color='black'/>
+        <label id='title'>unit converter</label>
       </header>
+      <Convert/>
     </div>
   );
 }
