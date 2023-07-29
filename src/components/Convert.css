@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-.content select, .content input {
+.content .converter, .content input {
     background-color: #2E0039;
     width: 218px;
     border: none;
