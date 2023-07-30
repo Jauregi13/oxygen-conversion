@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faRHeart } from '@fortawesome/free-regular-svg-icons';
 import { useRef, useState } from 'react';
+import SavedConversions from './SavedConversions';
 
 
 function Convert() {
@@ -11,6 +12,8 @@ function Convert() {
     const [convertValue,setConvertValue] = useState(parseFloat(0).toFixed(2));
     const selectConversion = useRef();
     const convertNumber = useRef();
+
+    console.log(localStorage.key);
 
     function changeConverter(){
        var conversions = selectConversion.current.value.split('_');
@@ -104,6 +107,8 @@ function Convert() {
                 </div>
                 
             </div>
+
+            <SavedConversions />
         </div>
     );
 }
