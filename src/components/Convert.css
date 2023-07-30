@@ -25,25 +25,31 @@
 
 .content .converter, .content input {
     background-color: #2E0039;
-    width: 218px;
+    width: 100%;
     border: none;
     color: #FFFFFF;
     border-bottom: 2px solid #FFFFFF;
 }
 
-.content input {
-    margin-right: 15px;
-    
+.content input[type=number] {
+    text-align: end;
 }
 
 .line_content {
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
+    width: 85%;
 }
 
-.line_content .converter {
-    margin-right: 15px;
+.line_content .firstColumn {
+    display: flex;
+    width: 85%;
+}
+.line_content .secondColumn {
+    display: flex;
+    width: 15%;
+    margin-left: 15px;
 }
 
 .content input:focus {
@@ -52,15 +58,26 @@
 
 #number_result {
     font-size: 24px;
-    margin-left: 153px;
     margin-top: -5px;
     font-weight: 700;
+    width: 80%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 #text_converter {
     font-size: 16px;
     font-weight: 700;
-    margin-left: 15px;
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#iconoFav {
+    display: flex;
+    width: 20%;
 }
 
 .result {

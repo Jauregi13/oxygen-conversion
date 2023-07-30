@@ -8,7 +8,7 @@ import { useRef, useState } from 'react';
 function Convert() {
 
     const [converter,setConverter] = useState({one : 'km',two : 'miles'});
-    const [convertValue,setConvertValue] = useState(0.00);
+    const [convertValue,setConvertValue] = useState(parseFloat(0).toFixed(2));
     const selectConversion = useRef();
     const convertNumber = useRef();
 
@@ -71,24 +71,39 @@ function Convert() {
                 <div className='content'>
                     <h1>convert</h1>
                     <div className='line_content'>
-                        <select defaultValue={'km_miles'} id='conversion' ref={selectConversion} className='converter' onChange={changeConverter}>
-                            <option value='km_miles'>km - miles</option>
-                            <option value='miles_km'>miles - km</option>
-                            <option value='feet_metres'>feet - metres</option>
-                            <option value='metres_feet'>metres - feet</option>
-                            <option value='cm_inches'>cm - inches</option>
-                            <option value='inches_cm'>inches - cm</option>
-                        </select>
-                        <FontAwesomeIcon icon={faArrowRightArrowLeft} onClick={reverseConversion}/>
+                        <div className='firstColumn'>
+                            <select defaultValue={'km_miles'} id='conversion' ref={selectConversion} className='converter' onChange={changeConverter}>
+                                <option value='km_miles'>km - miles</option>
+                                <option value='miles_km'>miles - km</option>
+                                <option value='feet_metres'>feet - metres</option>
+                                <option value='metres_feet'>metres - feet</option>
+                                <option value='cm_inches'>cm - inches</option>
+                                <option value='inches_cm'>inches - cm</option>
+                            </select>
+                        </div>
+                        <div className='secondColumn'>
+                            <FontAwesomeIcon icon={faArrowRightArrowLeft} onClick={reverseConversion}/>
+                        </div>
+                        
                     </div>
                     <div className='line_content'>
-                        <input type='number' ref={convertNumber} onChange={calculateConversion}/>
-                        <label>{converter.one}</label>
+                        <div className='firstColumn'>
+                            <input type='number'defaultValue={0} ref={convertNumber} onChange={calculateConversion}/>
+                        </div>
+                        <div className='secondColumn'>
+                            <label>{converter.one}</label>
+                        </div>
+                        
                     </div>
                     <div className='line_content result'>
-                        <FontAwesomeIcon icon={faRHeart} />
-                        <label id='number_result'>{convertValue}</label>
-                        <label id='text_converter'>{converter.two}</label>
+                        <div className='firstColumn'>
+                            <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} /></div>
+                            <div id='number_result'>{convertValue}</div>
+                        </div>
+                        <div className='secondColumn'>
+                            <div id='text_converter'>{converter.two}</div>
+                        </div>
+                        
                     </div>
                 </div>
                 
