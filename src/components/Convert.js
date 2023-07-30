@@ -41,23 +41,19 @@ function Convert() {
                 break;
         
             case 'feet_metres':
-
+                setConvertValue((convertNumber.current.value / 3.281).toFixed(2));
                 break;
             
             case 'metres_feet':
-
-                break;
-            
-            case 'feet_metres':
-
+                setConvertValue((convertNumber.current.value * 3.281).toFixed(2));
                 break;
             
             case 'cm_inches':
-
+                setConvertValue((convertNumber.current.value / 2.54).toFixed(2));
                 break;
             
             case 'inches_cm':
-
+                setConvertValue((convertNumber.current.value * 2.54).toFixed(2));
                 break;
             default:
                 break;
