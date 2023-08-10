@@ -5,15 +5,25 @@ import { faHeart as faRHeart } from '@fortawesome/free-regular-svg-icons';
 import { useRef, useState } from 'react';
 import SavedConversions from './SavedConversions';
 
-
 function Convert() {
 
     const [converter,setConverter] = useState({one : 'km',two : 'miles'});
     const [convertValue,setConvertValue] = useState(parseFloat(0).toFixed(2));
+    const [conversion,setConversion] = useState({});
     const selectConversion = useRef();
     const convertNumber = useRef();
 
-    console.log(localStorage.key);
+    function saveConversion(){
+        const newConversion = { convertAt : converter.one,
+            convertTo : converter.two,
+            valueToConvert : convertNumber.current.value,
+            convertedValue: convertValue}
+        setConversion(newConversion);
+        
+        convertNumber.current.value = '';
+        setConvertValue(parseFloat(0).toFixed(2));
+        
+    }
 
     function changeConverter(){
        var conversions = selectConversion.current.value.split('_');
@@ -60,8 +70,10 @@ function Convert() {
                 break;
             default:
                 break;
-        }
+        }     
     }
+
+    
 
 
     return (
@@ -72,12 +84,12 @@ function Convert() {
                     <div className='line_content'>
                         <div className='firstColumn'>
                             <select defaultValue={'km_miles'} id='conversion' ref={selectConversion} className='converter' onChange={changeConverter}>
-                                <option value='km_miles'>km - miles</option>
-                                <option value='miles_km'>miles - km</option>
-                                <option value='feet_metres'>feet - metres</option>
-                                <option value='metres_feet'>metres - feet</option>
-                                <option value='cm_inches'>cm - inches</option>
-                                <option value='inches_cm'>inches - cm</option>
+                                <option value='km_miles'>km &rarr; miles</option>
+                                <option value='miles_km'>miles &rarr; km</option>
+                                <option value='feet_metres'>feet &rarr; metres</option>
+                                <option value='metres_feet'>metres &rarr; feet</option>
+                                <option value='cm_inches'>cm &rarr; inches</option>
+                                <option value='inches_cm'>inches &rarr; cm</option>
                             </select>
                         </div>
                         <div className='secondColumn'>
@@ -96,7 +108,7 @@ function Convert() {
                     </div>
                     <div className='line_content result'>
                         <div className='firstColumn'>
-                            <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} /></div>
+                            <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} onClick={saveConversion}/></div>
                             <div id='number_result'>{convertValue}</div>
                         </div>
                         <div className='secondColumn'>
@@ -107,8 +119,8 @@ function Convert() {
                 </div>
                 
             </div>
-
-            <SavedConversions />
+            { Object.keys(conversion).length !== 0  && <SavedConversions data={conversion} /> }
+            
         </div>
     );
 }
