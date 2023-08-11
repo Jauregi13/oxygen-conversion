@@ -23,10 +23,17 @@
 }
 
 .App-header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  width: 85%;
   min-height: 5vh;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
+  max-width: 717px;
 }

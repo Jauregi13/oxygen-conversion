@@ -7,13 +7,14 @@
 
 .convert {
     height: 209px;
-    width: 349px;
+    width: 85%;
     border: 1px solid;
     border-color: #2E0039;
     border-radius: 21px;
     background-color: #2E0039;
     margin-top: 10px;
     color: #FFFFFF;
+    max-width: 717px;
 }
 
 .convert .content {
@@ -21,6 +22,12 @@
     align-items: flex-start;
     margin-left: 20px;
     flex-direction: column;
+}
+
+.conversion-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .content .converter, .content input {
@@ -40,6 +47,7 @@
     flex-direction: row;
     margin-bottom: 15px;
     width: 85%;
+    max-width: 266px;
 }
 
 .line_content .firstColumn {
@@ -84,6 +92,10 @@
     margin-top: 15px;
 }
 
-@media screen {
-    
+@media (min-width:530px) {
+    .conversion-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
 }

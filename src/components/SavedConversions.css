@@ -1,9 +1,14 @@
 .savedConversions {
+    width: 85%;
+    max-width: 717px;
+}
+
+.saved-content {
     display: flex;
     align-items: flex-start !important;
     justify-content: flex-start;
     flex-direction: column;
-    width: 349px;
+    width: 100%;
 }
 
 
@@ -12,6 +17,7 @@
     font-size: 16px;
     font-weight: 700;
     margin-top: 40px;
+    display: flex;
 }
 
 .item {
@@ -54,5 +60,9 @@
 .removeItem .close {
     
     color: #676767;
+}
+
+@media screen {
+    
 }
 

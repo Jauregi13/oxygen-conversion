@@ -6,8 +6,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <FontAwesomeIcon className='icon' icon={faArrowRightArrowLeft} color='black'/>
-        <label id='title'>unit converter</label>
+        <div className='header-content'>
+          <FontAwesomeIcon className='icon' icon={faArrowRightArrowLeft} color='black'/>
+          <label id='title'>unit converter</label>
+        </div>
+        
       </header>
       <Convert/>
     </div>

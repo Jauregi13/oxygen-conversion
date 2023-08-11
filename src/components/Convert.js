@@ -85,6 +85,7 @@ function Convert() {
             <div className='convert'>
                 <div className='content'>
                     <h1>convert</h1>
+                    <div className='conversion-content'>
                     <div className='line_content'>
                         <div className='firstColumn'>
                             <select defaultValue={'km_miles'} id='conversion' ref={selectConversion} className='converter' onChange={changeConverter}>
@@ -110,6 +111,8 @@ function Convert() {
                         </div>
                         
                     </div>
+                    </div>
+                    
                     <div className='line_content result'>
                         <div className='firstColumn'>
                             <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} onClick={saveConversion}/></div>
