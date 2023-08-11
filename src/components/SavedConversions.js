@@ -9,8 +9,19 @@ const SavedConversions = ({data}) =>{
 
     useEffect(() => {
 
+        setConversions(JSON.parse(localStorage.getItem("conversions")));
+
+    },[])
+    
+
+    useEffect(() => {
         
-        setConversions(prevConversions => prevConversions.concat(data));
+        if(Object.keys(data).length !== 0){
+            
+            setConversions([...conversions,data]);
+                
+        }
+        
         
                     
     },[data]);
@@ -25,17 +36,19 @@ const SavedConversions = ({data}) =>{
         
         <div className='savedConversions'>
             <div id="titleSaved">saved</div>
-            {conversions.map((conversion,indice) =>{
+            {conversions.map(conversion =>{
 
                 return(
-                    <div className='item' key={indice}>
+                    <div className='item' key={conversion.id}>
                         <div className='itemInfo'>
                             <div className='itemText'> 
                                 {conversion.valueToConvert} {conversion.convertAt} &rarr; {conversion.convertedValue} {conversion.convertTo}
                             </div>
                         </div>
                         <div className='removeItem'>
-                            <FontAwesomeIcon icon={faXmark}  className='close'/>
+                            <FontAwesomeIcon icon={faXmark}  className='close' onClick={() => {
+                                setConversions(conversions.filter(c => c.id !== conversion.id))
+                            }}/>
                         </div>
                     </div>
                 )

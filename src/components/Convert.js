@@ -10,19 +10,23 @@ function Convert() {
     const [converter,setConverter] = useState({one : 'km',two : 'miles'});
     const [convertValue,setConvertValue] = useState(parseFloat(0).toFixed(2));
     const [conversion,setConversion] = useState({});
+    const [count,setCount] = useState(1);
     const selectConversion = useRef();
     const convertNumber = useRef();
 
     function saveConversion(){
-        const newConversion = { convertAt : converter.one,
+        const newConversion = { 
+            id: count,
+            convertAt : converter.one,
             convertTo : converter.two,
             valueToConvert : convertNumber.current.value,
-            convertedValue: convertValue}
+            convertedValue: convertValue
+        }
         setConversion(newConversion);
         
         convertNumber.current.value = '';
         setConvertValue(parseFloat(0).toFixed(2));
-        
+        setCount(count+1);
     }
 
     function changeConverter(){
@@ -119,7 +123,7 @@ function Convert() {
                 </div>
                 
             </div>
-            { Object.keys(conversion).length !== 0  && <SavedConversions data={conversion} /> }
+            {(Object.keys(conversion).length !== 0 || localStorage.getItem("conversions") !== null)  && <SavedConversions data={conversion} /> }
             
         </div>
     );
