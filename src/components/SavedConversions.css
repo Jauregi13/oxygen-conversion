@@ -11,6 +11,12 @@
     width: 100%;
 }
 
+.saved-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 #titleSaved {
     color: #676767;
@@ -29,6 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    max-width: 349px;
 }
 
 .itemInfo {
@@ -62,7 +69,15 @@
     color: #676767;
 }
 
-@media screen {
-    
+@media (min-width:810px) {
+    .saved-items {
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        width: 100%;
+    }
+
+    .item:nth-child(even){
+        margin-left: 1%;
+    }
 }
 

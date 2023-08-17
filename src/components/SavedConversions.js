@@ -37,6 +37,7 @@ const SavedConversions = ({data}) =>{
         <div className='savedConversions'>
             <div className='saved-content'>
                 <div id="titleSaved">saved</div>
+                <div className='saved-items'>
                 {conversions.map(conversion =>{
 
                     return(
@@ -54,6 +55,8 @@ const SavedConversions = ({data}) =>{
                         </div>
                     )
                 })}
+                </div>
+                
             </div>
             
             
