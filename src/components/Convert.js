@@ -112,17 +112,19 @@ function Convert() {
                         
                     </div>
                     </div>
-                    
-                    <div className='line_content result'>
-                        <div className='firstColumn'>
-                            <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} onClick={saveConversion}/></div>
-                            <div id='number_result'>{convertValue}</div>
+                    <div className='result-content'>
+                        <div className='result'>
+                            <div className='firstColumn'>
+                                <div id='iconoFav'><FontAwesomeIcon icon={faRHeart} onClick={saveConversion}/></div>
+                                <div id='number_result'>{convertValue}</div>
+                            </div>
+                            <div className='secondColumn'>
+                                <div id='text_converter'>{converter.two}</div>
+                            </div>
+                            
                         </div>
-                        <div className='secondColumn'>
-                            <div id='text_converter'>{converter.two}</div>
-                        </div>
-                        
                     </div>
+                    
                 </div>
                 
             </div>
