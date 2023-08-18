@@ -69,7 +69,7 @@
     color: #676767;
 }
 
-@media (min-width:810px) {
+@media (min-width:768px) {
     .saved-items {
         display: grid;
         grid-template-columns: repeat(2,minmax(0,1fr));

@@ -2,7 +2,7 @@ import './Convert.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faRHeart } from '@fortawesome/free-regular-svg-icons';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SavedConversions from './SavedConversions';
 
 function Convert() {
@@ -15,19 +15,36 @@ function Convert() {
     const convertNumber = useRef();
 
     function saveConversion(){
-        const newConversion = { 
-            id: count,
-            convertAt : converter.one,
-            convertTo : converter.two,
-            valueToConvert : convertNumber.current.value,
-            convertedValue: convertValue
-        }
-        setConversion(newConversion);
+
+        if(parseInt(convertNumber.current.value) !== 0){
+            
+                const newConversion = { 
+                    id: count,
+                    convertAt : converter.one,
+                    convertTo : converter.two,
+                    valueToConvert : convertNumber.current.value,
+                    convertedValue: convertValue
+                }
+                setConversion(newConversion);
+                
+                convertNumber.current.value = 0;
+                setConvertValue(parseFloat(0).toFixed(2));
+                setCount(count+1);
+
+            }
         
-        convertNumber.current.value = '';
-        setConvertValue(parseFloat(0).toFixed(2));
-        setCount(count+1);
+        
     }
+
+    useEffect(() => {
+        localStorage.setItem("nextItemId",count);
+    },[count]);
+
+    useEffect(() => {
+        if(localStorage.getItem("nextItemId") !== null){
+            setCount(parseInt(localStorage.getItem("nextItemId")));
+        }
+    },[]);
 
     function changeConverter(){
        var conversions = selectConversion.current.value.split('_');
